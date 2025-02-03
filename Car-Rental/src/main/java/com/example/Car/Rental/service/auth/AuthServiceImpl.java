@@ -31,4 +31,9 @@ public class AuthServiceImpl implements AuthService{
         userDto.setId(createUser.getId()); //id ek auto genarate wela tyenne
         return userDto;
     }
+
+    @Override
+    public boolean hasCustomerWithEmail(String email) {
+        return userRepository.findFirstByEmail(email).isPresent();
+    }
 }
